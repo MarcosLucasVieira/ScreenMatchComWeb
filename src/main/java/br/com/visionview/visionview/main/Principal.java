@@ -47,13 +47,12 @@ public class Principal {
         temporadas.forEach(t -> t .episodios().forEach(e -> System.out.println(e.titulo())));
 
 
-        List<InfoEpisodios> dadosEpisodios = new ArrayList<>();
-        for (InfoTemp t : temporadas) {
-            dadosEpisodios.addAll(t.episodios());
-        }
+        List<InfoEpisodios> infoEpisodios = temporadas.stream()
+                .flatMap(t -> t.episodios().stream())
+                .collect(Collectors.toList());
 
-        System.out.println("\n Top 5 Episódios: ");
-        dadosEpisodios.stream()
+        System.out.println("\n Top 5 episódios");
+        infoEpisodios.stream()
                 .filter(e -> !e.avaliacao().equalsIgnoreCase("N/A"))
                 .sorted(Comparator.comparing(InfoEpisodios::avaliacao).reversed())
                 .limit(5)
