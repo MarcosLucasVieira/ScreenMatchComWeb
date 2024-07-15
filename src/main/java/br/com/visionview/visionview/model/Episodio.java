@@ -25,7 +25,7 @@ public class Episodio {
         try {
             this.dataLancamento = LocalDate.parse(dadosEpisodios.dataLancamento()) ;
         }catch (DateTimeParseException ex){
-            this.dataLancamento = LocalDate.ofEpochDay(0);
+            this.dataLancamento = null;
         }
 
 
