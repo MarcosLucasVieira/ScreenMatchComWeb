@@ -1,5 +1,6 @@
 package br.com.visionview.visionview.main;
 
+import br.com.visionview.visionview.model.Episodio;
 import br.com.visionview.visionview.model.InfoEpisodios;
 import br.com.visionview.visionview.model.InfoSerie;
 import br.com.visionview.visionview.model.InfoTemp;
@@ -50,6 +51,7 @@ public class Principal {
         List<InfoEpisodios> infoEpisodios = temporadas.stream()
                 .flatMap(t -> t.episodios().stream())
                 .collect(Collectors.toList());
+        System.out.println(infoEpisodios);
 
         System.out.println("\n Top 5 episódios");
         infoEpisodios.stream()
@@ -57,5 +59,13 @@ public class Principal {
                 .sorted(Comparator.comparing(InfoEpisodios::avaliacao).reversed())
                 .limit(5)
                 .forEach(System.out::println);
+
+
+        List<Episodio> episodios = temporadas.stream()
+                .flatMap(t -> t.episodios().stream()
+                        .map(d -> new Episodio(t.numero(), d))
+                ).collect(Collectors.toList());
+
+        episodios.forEach(System.out::println);
     }
 }
