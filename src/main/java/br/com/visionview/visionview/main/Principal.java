@@ -7,8 +7,10 @@ import br.com.visionview.visionview.service.ConsumoApi;
 import br.com.visionview.visionview.service.ConverteDados;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Principal {
 
@@ -43,5 +45,18 @@ public class Principal {
 //        }
 
         temporadas.forEach(t -> t .episodios().forEach(e -> System.out.println(e.titulo())));
+
+
+        List<InfoEpisodios> dadosEpisodios = new ArrayList<>();
+        for (InfoTemp t : temporadas) {
+            dadosEpisodios.addAll(t.episodios());
+        }
+
+        System.out.println("\n Top 5 Episódios: ");
+        dadosEpisodios.stream()
+                .filter(e -> !e.avaliacao().equalsIgnoreCase("N/A"))
+                .sorted(Comparator.comparing(InfoEpisodios::avaliacao).reversed())
+                .limit(5)
+                .forEach(System.out::println);
     }
 }
