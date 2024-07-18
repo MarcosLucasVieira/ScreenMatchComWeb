@@ -109,6 +109,6 @@ public class Principal {
         System.out.println("Média: " + est.getAverage());
         System.out.println("Melhor episódio: " + est.getMax());
         System.out.println("Pior episódio: " + est.getMin());
-        System.out.println("Quantidade de episódios avaliados: " + est.getCount());
+        System.out.println("Quantidade de episódios avaliados: " + est.getCount() );
     }
 }
