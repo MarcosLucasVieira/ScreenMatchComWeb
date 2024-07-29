@@ -38,7 +38,8 @@ public class Principal {
                 4 - Buscar Séries por Titulo     
                 5 - Buscar Séries por Ator   
                 6 - Top 5 Séries
-                7 - Buscar Séries por Categorias/Gênero                        
+                7 - Buscar Séries por Categorias/Gênero         
+                8 - Buscar Séries por Quantidade de Temporadas              
                 0 - Sair                                 
                 """;
 
@@ -68,6 +69,9 @@ public class Principal {
                 case 7 :
                     buscarSeriesPorCatergoria();
                     break;
+                case 8 :
+                    buscarQntdTemporadas();
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     break;
@@ -76,7 +80,6 @@ public class Principal {
             }
         }
     }
-
 
     private void buscarSerieWeb() {
         DadosSerie dados = getDadosSerie();
@@ -160,12 +163,21 @@ public class Principal {
                 System.out.println(s.getTitulo() + " avaliação: " + s.getAvaliacao()));
     }
     private void buscarSeriesPorCatergoria() {
-        System.out.println("Deseja buscar série de que categoria/genero: ");
+        System.out.println("Deseja buscar qual série de que categoria/genero: ");
         var nomeGenero = leitura.nextLine();
         Categoria categoria = Categoria.fromStringPt(nomeGenero);
         List<Serie> seriesPorcategoria = repository.findByGenero(categoria);
         System.out.println("Séries da Categoria " + nomeGenero);
         seriesPorcategoria.forEach(System.out::println);
+    }
+    private void buscarQntdTemporadas() {
+        System.out.println("Deseja assistir uma série com até quantas temporadas?");
+        var qntdTemporada = leitura.nextInt();
+        System.out.println("Avaliações a partir de que valor? ");
+        var avaliacao = leitura.nextDouble();
+        List<Serie> seriePorTemporada = repository.findByTotalTemporadasLessThanEqualAndAvaliacaoGreaterThanEqual(qntdTemporada, avaliacao );
+        System.out.println("Principais Séries com até : " + qntdTemporada);
+        seriePorTemporada.forEach(System.out::println);
     }
 
 
