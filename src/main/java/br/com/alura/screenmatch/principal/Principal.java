@@ -39,7 +39,8 @@ public class Principal {
                 5 - Buscar Séries por Ator   
                 6 - Top 5 Séries
                 7 - Buscar Séries por Categorias/Gênero         
-                8 - Buscar Séries por Quantidade de Temporadas              
+                8 - Buscar Séries por Quantidade de Temporadas    
+                9 - Buscar por nome de episódios           
                 0 - Sair                                 
                 """;
 
@@ -71,6 +72,9 @@ public class Principal {
                     break;
                 case 8 :
                     buscarQntdTemporadas();
+                    break;
+                case 9 :
+                    buscarEpisodioPortrecho();
                     break;
                 case 0:
                     System.out.println("Saindo...");
@@ -175,9 +179,18 @@ public class Principal {
         var qntdTemporada = leitura.nextInt();
         System.out.println("Avaliações a partir de que valor? ");
         var avaliacao = leitura.nextDouble();
-        List<Serie> seriePorTemporada = repository.findByTotalTemporadasLessThanEqualAndAvaliacaoGreaterThanEqual(qntdTemporada, avaliacao );
+        List<Serie> seriePorTemporada = repository.seriesPorTemporadaEAValiacao(qntdTemporada, avaliacao );
         System.out.println("Principais Séries com até : " + qntdTemporada);
         seriePorTemporada.forEach(System.out::println);
+    }
+    private void buscarEpisodioPortrecho() {
+        System.out.println("Qual o nome  do episodio para busca?");
+        var trechoEpisodio = leitura.nextLine();
+        List<Episodio> episodiosEncontrados = repository.episodiosPorTrecho(trechoEpisodio);
+        episodiosEncontrados.forEach(e ->
+                System.out.printf("Série: %s Temporada %s - Episódio %s - %s\n",
+                        e.getSerie().getTitulo(), e.getTemporada(),
+                        e.getNumeroEpisodio(), e.getTitulo()));
     }
 }
 
