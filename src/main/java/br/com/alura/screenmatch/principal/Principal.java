@@ -179,7 +179,5 @@ public class Principal {
         System.out.println("Principais Séries com até : " + qntdTemporada);
         seriePorTemporada.forEach(System.out::println);
     }
-
-
 }
 
