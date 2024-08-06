@@ -1,17 +1,27 @@
+![thumbnail-Formação Java](https://github.com/jacqueline-oliveira/3356-java-web-front/assets/66698429/7bd89d79-1385-4f62-adea-d4a27e79f728)
 
-![Programação-Formação Java](https://github.com/iasminaraujoc/3355-java-screenmatch-com-jpa/assets/84939115/3c51e000-962d-4dc9-97fc-1d384e2511a2)
+# Front-end da aplicação ScreenMatch
 
-# Java: persistência de dados e consultas com Spring Data JPA
+Essa é a aplicação Front-end que será utilizada no curso.
 
-Projeto desenvolvido no segundo curso da formação Avançando com Java da Alura
+Foi desenvolvida pela [Monica Hillman](https://cursos.alura.com.br/user/monicahillman)
+
+Para visualizar a mesma, após o download ou clone do projeto, abra-a com o VS Code
+
+Caso não possua, instale a extensão *Live Server*.
+
+Feito isso, clique com o botão direito no arquivo **index.html** e escolha "Open with Live Server".
+
+A princípio, caso a sua API ainda não esteja desenvolvida, o conteúdo que você verá será esse abaixo:
+
+![image](https://github.com/jacqueline-oliveira/3356-java-web-front/assets/66698429/b059bf8b-df40-4a51-8a27-9d1058305955)
 
 
-## 🔨 Objetivos do projeto
+Após a finalização do curso, seu projeto estará completo, já com as séries cadastradas e a API com as rotas prontas. Sendo assim, a aplicação irá mostrar os dados, de forma similar à abaixo:
 
-- Evoluir no projeto Screenmatch, iniciado no primeiro curso da formação, criando um menu com várias opções;
-- Modelar as abstrações da aplicação através de classes, enums, atributos e métodos;
-- Consumir a API do ChatGPT;
-- Utilizar o Spring Data JPA para persistir dados no banco;
-- Conhecer vários tipos de banco de dados e utilizar o PostgreSQL;
-- Trabalhar com vários tipos de consultas ao banco de dados;
-- Aprofundar na interface JPARepository
+
+![image](https://github.com/jacqueline-oliveira/3356-java-web-front/assets/66698429/00670340-c0fd-4035-b01a-af25aeff28a0)
+
+
+
+# Bons estudos!
